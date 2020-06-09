@@ -1,10 +1,19 @@
 import React from 'react';
 
 import AppHeader from '../app-header';
+import SearchPanel from '../search-panel';
 
 
 const App = () => {
-    return(<AppHeader/>)
+    return(
+     <div>
+        <AppHeader/>
+        <div className="search-panel d-flex">
+            <SearchPanel/>
+        </div>
+    </div>   
+    )
+
    
 }
 
