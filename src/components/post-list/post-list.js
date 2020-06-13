@@ -6,10 +6,10 @@ import PostListItem from '../post-list-item';
 const PostList = () => {
     return(
         <ul className="app-list list-group">
-            <PostListItem/>
-            <PostListItem/>
-            <PostListItem/>
-        </ul>
+            <PostListItem label="Going to learn react" important/>
+            <PostListItem label="That is so good"/>
+            <PostListItem label="I need a break..."/>
+        </ul>    
     )
 }
 
