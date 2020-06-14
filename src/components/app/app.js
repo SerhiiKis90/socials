@@ -25,6 +25,9 @@ export default class App extends Component {
             ]
         };
         this.deleteItem = this.deleteItem.bind(this);
+        this.addItem = this.addItem.bind(this);
+
+        this.maxId=4;
     }
 
     deleteItem(id) {
@@ -35,6 +38,20 @@ export default class App extends Component {
                 data: newArr
             }
         });
+    }
+
+    addItem(body){
+        const newItem = {
+            label: body,
+            important: false,
+            id: this.maxId++
+        }
+        this.setState(({data}) => {
+            const newArr = [...data, newItem];
+            return {
+                data: newArr
+            }
+        })
     }
     render() {
 
@@ -49,7 +66,9 @@ export default class App extends Component {
                posts={this.state.data}
                onDelete={this.deleteItem}
                />
-               <PostAddForm/>
+               <PostAddForm
+               onAdd={this.addItem}
+               />
            </AppBlock>   
            )
     }
