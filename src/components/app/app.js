@@ -19,13 +19,15 @@ export default class App extends Component {
         super(props);
         this.state = {
             data : [
-                {label: 'Going to learn react', important:true, id:1},
-                {label: 'That is so good', important:false,id:2},
-                {label: 'I need a break...', important:false,id:3}
+                {label: 'Going to learn react', important:true, like:false, id:1},
+                {label: 'That is so good', important:false,like:false,id:2},
+                {label: 'I need a break...', important:false,like:false,id:3}
             ]
         };
         this.deleteItem = this.deleteItem.bind(this);
         this.addItem = this.addItem.bind(this);
+        this.onToggleImportant=this.onToggleImportant.bind(this);
+        this.onToggleLike=this.onToggleLike.bind(this);
 
         this.maxId=4;
     }
@@ -53,6 +55,15 @@ export default class App extends Component {
             }
         })
     }
+
+    onToggleImportant(id) {
+        console.log(id);
+    }
+
+    onToggleLike(id) {
+        console.log('Like');
+    }
+
     render() {
 
         return(
@@ -65,6 +76,8 @@ export default class App extends Component {
                <PostList 
                posts={this.state.data}
                onDelete={this.deleteItem}
+               onToggleImportant={this.onToggleImportant}
+               onToggleLike={this.onToggleLike}
                />
                <PostAddForm
                onAdd={this.addItem}
